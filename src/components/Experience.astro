@@ -1,0 +1,29 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE=[
+    {
+        date: "Febrero 2024 - Agosto 2024",
+        title: "Principal Frontend Engineer",
+        company:"I.E San Jaoquin - Valledupar",
+        description: "Diseñé y desarrollé el módulo de Gestión de la Convivencia Escolar para el software de la Institución Educativa San Joaquín, basado en la Ley 1620 de 2013. Este módulo centraliza y digitaliza la administración de incidentes escolares, implementando funciones clave como la gestión de observaciones, severidad y evidencias, mejorando la organización, eficiencia y seguridad en el entorno escolar.",
+    }, {
+    date: "Septiembre 2023",
+    title: "Principal Frontend Engineer",
+    company: "BOHIO",
+    description:
+      "Como desarrollador frontend en el proyecto web de Bohío, fui responsable del diseño, implementación y optimización de la interfaz de usuario, asegurando una experiencia intuitiva y funcional. Contribuí a mejorar la eficiencia del equipo en un 30%, agilizando la entrega de componentes clave para el sistema.",
+  }
+]
+---
+
+
+<ol class="relative mt-16">
+    {
+      EXPERIENCE.map((experience) => (
+        <li class="">
+          <ExperienceItem {...experience} />
+        </li>
+      ))
+    }
+  </ol>
+

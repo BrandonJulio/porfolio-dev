@@ -2,12 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Badge from '../components/Badge.astro';
-import LikedInIcon from '../components/Icons/Linkedin.astro';
+import LikedinIcon from '../components/Icons/Linkedin.astro';
+import SocialPill from '@/components/SocialPill.astro';
+import GitHubIcon from '../components/Icons/GitHub.astro';
+import MailIcon from '../components/Icons/Mail.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/Container.astro';
+import Briefcase from '@/components/Icons/Briefcase.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Porfolio de Brando Julio - Desarrollador y Programador Web">
 	<main>
-		<section class="w-full mx-auto lg:w-[740px] py-44">
+		<SectionContainer class="py-44 pb-24">
 			
 		<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">  
 			<img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35">
@@ -20,18 +26,33 @@ import LikedInIcon from '../components/Icons/Linkedin.astro';
 				<Badge>Disponible</Badge></h1>
 			</a>
 			
-		<h2 class="text-2xl opocity-80 text-wrap">2 años de experiencia. Desarrollador Web y Creador de Contenido.
+		<h2 class="text-2xl opocity-80 text-wrap">
+			2 años de experiencia. Desarrollador Web y Creador de Contenido.
 			De Santa Marta, Colombia. Especializado en crear aplicaciones únicas.
 		</h2>
-		<ul>
-			<li>
-				<a href="https://www.linkedin.com/in/brandon-janel-julio-gonzalez-5b8ba5243/">
-					<LikedInIcon class="w-6 h-6"/>
-					LikedIn
-				</a>
-			</li>
-		</ul>
-	</section>
+
+		<nav class="flex gap-x-4 mt-8">
+			<SocialPill href="https://www.linkedin.com/in/brandon-janel-julio-gonzalez-5b8ba5243/">
+				<LikedinIcon class="size-6" />
+				LinkedIn
+			</SocialPill>
+			<SocialPill href="https://github.com/BrandonJulio">
+			<GitHubIcon class="size-6"/>
+			GitHub
+			</SocialPill>
+			<SocialPill href="mailto:brandonjulio1997@gmail.com">
+				<MailIcon class="size-6"/>
+				brandonjulio1997@gmail.com
+			</SocialPill>
+		</nav>
+		</SectionContainer>
+
+	<SectionContainer id="experiencia">
+		<h2 class="text-2xl font-semibold mb-8 flex gap-x-3 items-center">
+			<Briefcase class="size-7"/>
+			Experiencia laboral</h2>
+		<Experience/>
+	</SectionContainer>
 	</main>
 </Layout>
 
