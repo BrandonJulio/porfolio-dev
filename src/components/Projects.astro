@@ -1,0 +1,54 @@
+---
+import Html from "./Icons/Html.astro"
+
+const TAGS = {
+    HTML:{
+        name: "Html",
+        class:"bg-black text white",
+        icon: Html,
+    }
+}
+const PROJECTS =[
+{
+        title: 'Biblos - Alquiler de Canchas Sintéticas en Valledupar.',
+        description:'En Biblos, Valledupar, ofrecemos canchas sintéticas de alta calidad para tus partidos. Disfruta la pasión del fútbol en instalaciones ideales. ¡Reserva ahora y vive la experiencia!',
+        image: '/projects/biblos.webp',
+        // github:'#'
+        tags:[TAGS.HTML]
+    },
+    // {
+    //     title: 'Vigis',
+    //     description:'Vigis es una aplicativo movil',
+    //     image: 'https://picsum.photos/200/300',
+    //     // github:'#'
+    //     tags:['ANDRIOD STUDIO', 'KOTLIN', 'SQL']
+    // }
+  
+]
+---
+
+{
+    PROJECTS.map(({title, description, tags, image})=>(
+        <article>
+            <h1>
+                <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+                <p class="text-lg mb-4 text-pretty">{description}</p>
+                <ul class="flex gap-x-4 flex-row">
+                    {
+                      tags.map((tag)=>(
+                        <li>
+                             <span class={`flex items-center gap-x-2 rounded-full text-xs${tag.class} py-1 px-2`}>
+                            <tag.icon class="size-4"/>
+                            {tag.name}
+                        </span>
+                        </li>
+                      ))
+                    }
+                </ul>
+                <img class="rounded shadow-2xl shadow-white/10" 
+                src={image} 
+                alt={`Captura de pantalla del proyecto${image}`}/>
+            </h1>
+        </article>
+    ))
+}
