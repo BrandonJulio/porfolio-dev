@@ -1,0 +1,45 @@
+---
+const personalImageAlt = "Brando Juilo"
+import Badge from "@/components/Badge.astro"
+import LinkedInIcon from "@/components/Icons/Linkedin.astro"
+import MailIcon from "@/components/Icons/Mail.astro"
+import SocialPill from "@/components/SocialPill.astro"
+import GitHubIcon from '../components/Icons/GitHub.astro';
+import LikedinIcon from '../components/Icons/Linkedin.astro';
+---
+
+<div class="max-w-xl">
+    <h1 class="text-white text-3xl lg:text-4xl md:text-4xl font-bold flex 
+    flex-row gap-x-4 pb-6 lg:pb-10">  
+        <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35">
+        Hey, Soy Brando Janel 
+        <a href="https://www.linkedin.com/in/brandon-janel-julio-gonzalez-5b8ba5243/"
+            target="_blank"
+            rel="noopener"
+            class="flex jusify-center items-center"
+        >
+            <Badge>Disponible</Badge>
+        </a>
+    </h1>
+  <p
+    class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+  >
+    2 años de experiencia. <strong
+      >Ingeniero de Sistemas y desarrollar web</strong
+    > De Santa Marta, Colombia. Especializado en crear aplicaciones únicas.
+  </p>
+  <nav class="flex gap-4 mt-8 flex-wrap">
+    <SocialPill href="https://www.linkedin.com/in/brandon-janel-julio-gonzalez-5b8ba5243/">
+        <LikedinIcon class="size-4 md:size-6" />
+        LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/BrandonJulio">
+    <GitHubIcon class="size-4 md:size-6"/>
+    GitHub
+    </SocialPill>
+    <SocialPill href="mailto:brandonjulio1997@gmail.com">
+        <MailIcon class="size-4 md:size-6"/>
+        Gmail
+    </SocialPill>
+</nav>
+</div>

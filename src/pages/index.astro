@@ -1,77 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Badge from '../components/Badge.astro';
-import LikedinIcon from '../components/Icons/Linkedin.astro';
-import SocialPill from '@/components/SocialPill.astro';
-import GitHubIcon from '../components/Icons/GitHub.astro';
-import MailIcon from '../components/Icons/Mail.astro';
-import Experience from '../components/Experience.astro';
-import SectionContainer from '../components/Container.astro';
-import Briefcase from '@/components/Icons/Briefcase.astro';
-import Code from '../components/Icons/Code.astro';
-import Projects from '@/components/Projects.astro';
+import Layout from "@/layouts/Layout.astro"
+
+import AboutMe from "@/components/AboutMe.astro"
+import Briefcase from "@/components/Icons/Briefcase.astro"
+import CodeIcon from "@/components/Icons/Code.astro"
+import Experience from "@/components/Experience.astro"
+import ProfileCheck from "@/components/Icons/ProfileCheck.astro"
+import Projects from "@/components/Projects.astro"
+import SectionContainer from "@/components/Container.astro"
+import Hero from "@/components/Hero.astro"
+import TitleSection from "@/components/TitleSection.astro"
 ---
 
-<Layout 
-	title="Porfolio de Brando Julio - Desarrollador y Programador Web"
-	description="Contrata a midudev para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones únicas." 
-	>
-	<main class="px-4">
-		<SectionContainer class="py-44 pb-24">
-			
-		<h1 class="text-white text-3xl lg:text-4xl md:text-4xl font-bold flex 
-		flex-row gap-x-4 pb-6 lg:pb-10">  
-			<img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35">
-			Hey, Soy Brando Janel 
-			<a href="https://www.linkedin.com/in/brandon-janel-julio-gonzalez-5b8ba5243/"
-				target="_blank"
-				rel="noopener"
-				class="flex jusify-center items-center"
-			>
-				<Badge>Disponible</Badge>
-			</a>
-		</h1>
-			
-		<h2 class="text-xl lg:text-3xl text-wrap max-w-[700px]">
-			2 años de experiencia. Desarrollador Web y Creador de Contenido.
-			De Santa Marta, Colombia. Especializado en crear aplicaciones únicas.
-		</h2>
+<Layout
+  title="Porfolio de midudev - Desarrollador y Programador Web con 15 años de experiencia"
+  description="Contrata a Brando Julio para desarrollar tu aplicación web. Especialista en crear experiencias digitales únicas con un enfoque en calidad y creatividad."
+>
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <Hero>
+      </slot>
+    </Hero>
+    </SectionContainer>
+    <div class="space-y-24">
+    <SectionContainer id="experiencia">
+      <TitleSection>
+        <Briefcase class="size-8" />
+        Experiencia laboral
+      </TitleSection>
+      <Experience />
+    </SectionContainer>
 
-		<nav class="flex gap-4 mt-8 flex-wrap">
-			<SocialPill href="https://www.linkedin.com/in/brandon-janel-julio-gonzalez-5b8ba5243/">
-				<LikedinIcon class="size-4 md:size-6" />
-				LinkedIn
-			</SocialPill>
-			<SocialPill href="https://github.com/BrandonJulio">
-			<GitHubIcon class="size-4 md:size-6"/>
-			GitHub
-			</SocialPill>
-			<SocialPill href="mailto:brandonjulio1997@gmail.com">
-				<MailIcon class="size-4 md:size-6"/>
-				brandonjulio1997@gmail.com
-			</SocialPill>
-		</nav>
-		</SectionContainer>
+    <SectionContainer id="proyectos">
+      <TitleSection>
+        <CodeIcon class="size-7" />
+        Proyectos
+      </TitleSection>
+      <Projects />
+    </SectionContainer>
 
-		<SectionContainer id="experiencia" >
-			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-			  <Briefcase class="size-7" />
-			  Experiencia laboral
-			</h2>
-			  <Experience />
-
-		  </SectionContainer>
-		  
-		  <SectionContainer id="Proyectos" >
-			<h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-			  <Code class="size-7" />
-			  Proyectos
-			</h2>
-			  <Projects />
-		  </SectionContainer>
-		  
-
-	</main>
+    <SectionContainer id="sobre-mi">
+      <TitleSection>
+        <ProfileCheck class="size-8" />
+        Sobre mí
+      </TitleSection>
+      <AboutMe />
+    </SectionContainer>
+  </div>
+  </main>
 </Layout>
-
