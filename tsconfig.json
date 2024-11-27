@@ -1,11 +1,14 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "typeRoots": ["node_modules/@types", "node_modules/tsparticles-engine/types"],
     "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
       ]
     }
-  }
+  }, 
+  
 }
+
