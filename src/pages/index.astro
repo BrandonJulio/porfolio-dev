@@ -10,6 +10,7 @@ import Projects from "@/components/Projects.astro"
 import SectionContainer from "@/components/Container.astro"
 import Hero from "@/components/Hero.astro"
 import TitleSection from "@/components/TitleSection.astro"
+import Skill from "@/components/Skill.astro"
 ---
 
 <Layout
@@ -22,6 +23,7 @@ import TitleSection from "@/components/TitleSection.astro"
       </slot>
     </Hero>
     </SectionContainer>
+    
     <div class="space-y-24">
     <SectionContainer id="experiencia">
       <TitleSection>
@@ -37,6 +39,13 @@ import TitleSection from "@/components/TitleSection.astro"
         Proyectos
       </TitleSection>
       <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="habilidades">
+      <TitleSection>
+        <img src = "https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width = 32px> Skill
+      </TitleSection>
+      <Skill />
     </SectionContainer>
 
     <SectionContainer id="sobre-mi">
