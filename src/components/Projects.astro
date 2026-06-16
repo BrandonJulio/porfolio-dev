@@ -4,7 +4,6 @@ import Html from "./Icons/Html.astro"
 import Javascript from "./Icons/Javascript.astro"
 import php from "./Icons/php.astro"
 import LinkButton from "./LinkButton.astro"
-import Link from "./Icons/Link.astro"
 import GitHub from "./Icons/GitHub.astro"
 import YouTube from "./Icons/YouTube.astro"
 import Android from "./Icons/Android.astro"
@@ -12,128 +11,188 @@ import Python from "./Icons/Python.astro"
 import Mysql from "./Icons/Mysql.astro"
 import Kotlin from "./Icons/Kotlin.astro"
 import Bootstrap from "./Icons/Bootstrap.astro"
+import React from "./Icons/React.astro"
+import Tailwind from "./Icons/Tailwind.astro"
+import Azure from "./Icons/Azure.astro"
+import Auth0 from "./Icons/Auth0.astro"
+import ExternalLink from "./Icons/ExternalLink.astro"
 
 
 const TAGS = {
-    HTML:{
-        name: "Html",
-        class:"bg-black text white",
-        icon: Html,
-    },
-    CSS:{
-        name: "Css",
-        class:"bg-black text white",
-        icon: Css,
-    },
-    JAVASCRIPT:{
-        name: "Javascript",
-        class:"bg-black text white",
-        icon: Javascript,
-    },
-    PHP :{
-        name: "php",
-        class:"bg-black text white",
-        icon: php,
-    },
-    KOTLIN :{
-        name: "Kotlin",
-        class:"bg-black text white",
-        icon: Kotlin,
-    },
-    PYTHON :{
-        name: "Python",
-        class:"bg-black text white",
-        icon: Python,
-    },
-    ANDROID:{
-        name: "Android Studio",
-        class:"bg-black text white",
-        icon: Android,
-    },
-    MYSQL :{
-        name: "Mysql",
-        class:"bg-black text white",
-        icon: Mysql,
-    }
-    ,BOOTSTRAP:{
-        name: "Bootstrap",
-        class:"bg-black text white",
-        icon: Bootstrap,
-    }
+  HTML: {
+    name: "Html",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Html,
+  },
+  CSS: {
+    name: "Css",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Css,
+  },
+  JAVASCRIPT: {
+    name: "Javascript",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Javascript,
+  },
+  PHP: {
+    name: "php",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: php,
+  },
+  KOTLIN: {
+    name: "Kotlin",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Kotlin,
+  },
+  PYTHON: {
+    name: "Python",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Python,
+  },
+  ANDROID: {
+    name: "Android Studio",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Android,
+  },
+  MYSQL: {
+    name: "Mysql",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Mysql,
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Bootstrap,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: React,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Tailwind,
+  },
+  AZURE: {
+    name: "Azure",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Azure,
+  },
+  AUTH0: {
+    name: "Auth0",
+    class: "bg-white/80 text-slate-700 ring-1 ring-black/5 dark:bg-white/10 dark:text-slate-100 dark:ring-white/10",
+    icon: Auth0,
+  },
+
 }
-const PROJECTS =[
+
+const PROJECTS = [
   {
-        title: 'Edu SILBRA - Práctica de grado',
-        description:'Es un software diseñado para gestionar ciclos lectivos especiales en la Institución Educativa San Joaquín. Automatiza procesos administrativos, facilita la inscripción y seguimiento de estudiantes, y mejora la comunicación entre docentes y personal administrativo. Incluye módulos para matrícula, gestión académica y reportes personalizados.',
-        image: '/projects/EDUSILBRA.webp',
-        // youtube:'https://www.youtube.com/watch?v=XfddltM4ufQ&ab_channel=BrandonJulio',
-        tags:[TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.BOOTSTRAP, TAGS.PHP]
-    },
+    title: "Edu SILBRA - Práctica de grado",
+    description:
+      "Es un software diseñado para gestionar ciclos lectivos especiales en la Institución Educativa San Joaquín. Automatiza procesos administrativos, facilita la inscripción y seguimiento de estudiantes, y mejora la comunicación entre docentes y personal administrativo. Incluye módulos para matrícula, gestión académica y reportes personalizados.",
+    image: "/projects/EDUSILBRA.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.BOOTSTRAP, TAGS.PHP],
+  },
   {
-        title: 'Biblos - Alquiler de Canchas Sintéticas en Valledupar.',
-        description:'Es una plataforma web complementada con un software de gestión que permite la reserva de canchas sintéticas en Valledupar. Diseñada para optimizar la administración y brindar a los usuarios una experiencia ágil y eficiente, ofrece opciones para encontrar y agendar partidos en instalaciones de alta calidad.',
-        image: '/projects/biblos.webp',
-        github: "https://github.com/BrandonJulio",
-        tags:[TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.PHP]
-    },
-    {
-        title: 'Vigis',
-        description:'Es una aplicación móvil diseñada para el análisis delictivo en ciudades pequeñas como Valledupar. Utiliza sistemas de información geográfica y mapas de calor para identificar patrones y tendencias delictivas. Su objetivo es permitir a las autoridades modelar y prever desplazamientos de delitos, mejorando la seguridad.',
-        image: '/projects/Vigis.png',
-        youtube:'https://www.youtube.com/watch?v=XfddltM4ufQ&ab_channel=BrandonJulio',
-        tags:[TAGS.KOTLIN, TAGS.PYTHON, TAGS.ANDROID, TAGS.MYSQL]
-    },
+    title: "Biblos - Alquiler de Canchas Sintéticas en Valledupar.",
+    description:
+      "Es una plataforma web complementada con un software de gestión que permite la reserva de canchas sintéticas en Valledupar. Diseñada para optimizar la administración y brindar a los usuarios una experiencia ágil y eficiente, ofrece opciones para encontrar y agendar partidos en instalaciones de alta calidad.",
+    image: "/projects/biblos.webp",
+    github: "https://github.com/BrandonJulio",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.PHP],
+  },
+  {
+    title: "Vigis",
+    description:
+      "Es una aplicación móvil diseñada para el análisis delictivo en ciudades pequeñas como Valledupar. Utiliza sistemas de información geográfica y mapas de calor para identificar patrones y tendencias delictivas. Su objetivo es permitir a las autoridades modelar y prever desplazamientos de delitos, mejorando la seguridad.",
+    image: "/projects/Vigis.png",
+    youtube: "https://www.youtube.com/watch?v=XfddltM4ufQ&ab_channel=BrandonJulio",
+    tags: [TAGS.KOTLIN, TAGS.PYTHON, TAGS.ANDROID, TAGS.MYSQL],
+  },
+  {
+    title: "Acuerdos pro",
+    description:
+      "Dealflow es una plataforma web para la gestión centralizada de clientes, contratos y documentación legal en entornos multi-oficina. Automatiza cálculos financieros, generación de documentos y procesos contractuales, incorporando auditoría, control de accesos y trazabilidad. Su implementación optimiza la operación, reduce errores manuales y fortalece el cumplimiento normativo.",
+    image: "/projects/ACUERDOS.webp",
+    externalLink: "https://dealflow.crecertodosge.com/",  
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.PHP, TAGS.MYSQL, TAGS.AZURE, TAGS.AUTH0],
+  },
+  {
+    title: "Asigno",
+    description:
+      "Asigno es una plataforma web diseñada para automatizar la asignación y distribución de leads a equipos comerciales mediante reglas de negocio personalizadas. Centraliza la gestión de vendedores, referidos y disponibilidad operativa, optimizando la distribución de oportunidades de venta. Además, incorpora reportería automatizada y herramientas de seguimiento para mejorar la eficiencia y el control comercial.",
+    image: "/projects/asigno.webp",
+    externalLink: "https://proof.crecertodosge.com/login",  
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.PHP, TAGS.MYSQL, TAGS.AZURE, TAGS.AUTH0],
+  },
 ]
 ---
 
-
-<div class="flex flex-col gap-y-16">
-    {
-      PROJECTS.map(({ image, title, description, tags, youtube, github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-      <div class="w-full md:w-1/2">
-        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-          <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+<div class="flex flex-col gap-10">
+  {
+    PROJECTS.map(({ image, title, description, tags, youtube, github, externalLink }) => (
+      <article class="group grid gap-6 rounded-xl border border-black/5 bg-white/60 p-4 shadow-[0_24px_80px_-40px_rgba(15,23,42,0.45)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_90px_-36px_rgba(15,23,42,0.55)] dark:border-white/10 dark:bg-white/[0.04] md:grid-cols-[1.15fr_0.85fr] md:p-5">
+        <div class="relative overflow-hidden rounded-[1.4rem] border border-black/5 bg-slate-950/90 dark:border-white/10">
+          <img
+            alt={title}
+            class="h-full min-h-[250px] w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+            loading="lazy"
+            src={image}
+          />
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent"></div>
         </div>
-      </div>
-    
-      <div class="w-full md:w-1/2 md:max-w-lg">
-        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-          {title}
-        </h3>
-        <div class="flex flex-wrap mt-2">
-          <ul class="flex flex-row mb-2 gap-x-2">
+
+        <div class="flex flex-col justify-between gap-5 rounded-[1.5rem] bg-white/70 p-5 ring-1 ring-black/5 dark:bg-[#0f172a]/55 dark:ring-white/10">
+          <div class="space-y-4">
+            <div class="inline-flex rounded-full bg-yellow-400/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-yellow-700 dark:text-yellow-300">
+              Proyecto destacado
+            </div>
+
+            <div class="space-y-3">
+              <h3 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+                {title}
+              </h3>
+              <p class="text-[15px] leading-7 text-slate-600 dark:text-slate-300">
+                {description}
+              </p>
+            </div>
+
+            <ul class="flex flex-wrap gap-2">
               {tags.map((tag) => (
                 <li>
-                  <span
-                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
-                  >
+                  <span class={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium ${tag.class}`}>
                     <tag.icon class="size-4" />
                     {tag.name}
                   </span>
                 </li>
               ))}
             </ul>
-    
-          <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-          <footer class="flex items-end justify-start mt-4 gap-x-4">
-              {github && (
-                <LinkButton href={github}>
-                  <GitHub class="size-6" />
-                  Code
-                  
-                </LinkButton>
-              )}
-              {youtube && (
-                <LinkButton href={youtube}>
-                  <YouTube class="size-4" />
-                  YouTube
-                </LinkButton>
-              )}
-            </footer>
+          </div>
+
+          <footer class="flex flex-wrap items-center gap-3 pt-2">
+            {github && (
+              <LinkButton href={github}>
+                <GitHub class="size-5" />
+                Code
+              </LinkButton>
+            )}
+            {youtube && (
+              <LinkButton href={youtube}>
+                <YouTube class="size-4" />
+                Demo
+              </LinkButton>
+            )}
+            {externalLink && (
+              <LinkButton href={externalLink}>
+                <ExternalLink class="size-4" />
+                Preview
+              </LinkButton>
+            )}
+          </footer>
         </div>
-      </div>
-  </article>
-      ))
-    }
+      </article>
+    ))
+  }
 </div>
