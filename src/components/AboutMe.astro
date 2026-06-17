@@ -20,6 +20,31 @@
 
   </div>
 
-  <img width="200" height="200" src="/projects/foto_perfil.png" alt={personalImageAlt} class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
-
+  <img 
+  width="200" 
+  height="200" 
+  src="/projects/foto_perfil.webp" 
+  alt={personalImageAlt} 
+  class="
+    order-1 md:order-2 
+    w-72 md:w-80 lg:w-96 
+    aspect-square h-full p-1 lg:p-2 
+    object-cover 
+    rounded-2xl 
+    rotate-3 
+    
+    /* Borde sutil (Modo claro y oscuro) */
+    ring-1 ring-zinc-200/50 dark:ring-white/10
+    bg-zinc-100 dark:bg-zinc-800/50
+    
+    /* El truco de la suavidad: Transiciones */
+    transition-all duration-500 ease-out
+    
+    /* Efecto HOVER: Se eleva suave, se endereza, crece un poco y gana sombra profunda */
+    hover:-translate-y-4 hover:rotate-0 hover:scale-[1.02]
+    hover:shadow-2xl hover:shadow-indigo-500/10
+    hover:ring-indigo-500/50 dark:hover:ring-indigo-400/50
+    " 
+    style="object-position: 50% 50%"
+  />
 </article>
