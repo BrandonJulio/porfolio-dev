@@ -10,9 +10,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Se mantiene al fondo */
-    pointer-events: none; /* Permite hacer click a los elementos de arriba */
-    background: transparent; /* Sin fondo, se adapta a tu layout */
+    z-index: -1;
+    pointer-events: none;
+    background: transparent;
   }
 </style>
 
@@ -24,17 +24,20 @@
     numParticles: number;
     connectionDistance: number;
     mouse: { x: number | null; y: number | null };
+    particleColor: string;
+    lineColor: string;
+    mouseLineColor: string;
 
     constructor() {
-      this.canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
-      this.ctx = this.canvas.getContext('2d')!;
+      this.canvas = document.getElementById("particle-canvas") as HTMLCanvasElement;
+      this.ctx = this.canvas.getContext("2d")!;
       this.particles = [];
-      
-      // Ajustes de densidad y distancia
       this.numParticles = Math.floor((window.innerWidth * window.innerHeight) / 9000);
       this.connectionDistance = 120;
-      
       this.mouse = { x: null, y: null };
+      this.particleColor = "rgba(71, 85, 105, 0.48)";
+      this.lineColor = "71, 85, 105";
+      this.mouseLineColor = "217, 119, 6";
 
       this.init();
     }
@@ -42,26 +45,36 @@
     init() {
       this.resizeCanvas();
       this.createParticles();
-      
-      // Eventos
-      window.addEventListener('resize', () => this.resizeCanvas());
-      window.addEventListener('mousemove', (e) => {
+      this.updateThemeColors();
+
+      window.addEventListener("resize", () => this.resizeCanvas());
+      window.addEventListener("mousemove", (e) => {
         this.mouse.x = e.clientX;
         this.mouse.y = e.clientY;
       });
-      window.addEventListener('mouseleave', () => {
+      window.addEventListener("mouseleave", () => {
         this.mouse.x = null;
         this.mouse.y = null;
       });
 
-      // Iniciar animación
+      new MutationObserver(() => this.updateThemeColors()).observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+
       this.animate();
+    }
+
+    updateThemeColors() {
+      const isDark = document.documentElement.classList.contains("dark");
+      this.particleColor = isDark ? "rgba(255, 255, 255, 0.7)" : "rgba(71, 85, 105, 0.48)";
+      this.lineColor = isDark ? "255, 255, 255" : "71, 85, 105";
+      this.mouseLineColor = isDark ? "250, 204, 21" : "217, 119, 6";
     }
 
     resizeCanvas() {
       this.canvas.width = window.innerWidth;
       this.canvas.height = window.innerHeight;
-      // Recalcular número de partículas si la pantalla cambia drásticamente
       this.numParticles = Math.floor((this.canvas.width * this.canvas.height) / 9000);
     }
 
@@ -71,9 +84,9 @@
         this.particles.push({
           x: Math.random() * this.canvas.width,
           y: Math.random() * this.canvas.height,
-          vx: (Math.random() - 0.5) * 0.5, // Velocidad suave
+          vx: (Math.random() - 0.5) * 0.5,
           vy: (Math.random() - 0.5) * 0.5,
-          radius: Math.random() * 2 + 1.5 // Tamaño de los nodos (puntos blancos)
+          radius: Math.random() * 2 + 1.5,
         });
       }
     }
@@ -81,23 +94,19 @@
     animate() {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-      // Dibujar y actualizar partículas
       this.particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
 
-        // Rebotar en los bordes
         if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1;
 
-        // Dibujar el nodo (punto blanco translúcido)
         this.ctx.beginPath();
         this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        this.ctx.fillStyle = this.particleColor;
         this.ctx.fill();
       });
 
-      // Dibujar las líneas de conexión
       for (let i = 0; i < this.particles.length; i++) {
         for (let j = i + 1; j < this.particles.length; j++) {
           const p1 = this.particles[i];
@@ -108,18 +117,16 @@
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < this.connectionDistance) {
-            // La opacidad de la línea depende de la cercanía
             const alpha = (1 - dist / this.connectionDistance) * 0.25;
             this.ctx.beginPath();
             this.ctx.moveTo(p1.x, p1.y);
             this.ctx.lineTo(p2.x, p2.y);
-            this.ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+            this.ctx.strokeStyle = `rgba(${this.lineColor}, ${alpha})`;
             this.ctx.lineWidth = 0.8;
             this.ctx.stroke();
           }
         }
 
-        // Conexión opcional con el mouse
         if (this.mouse.x !== null && this.mouse.y !== null) {
           const p1 = this.particles[i];
           const dx = p1.x - this.mouse.x;
@@ -131,7 +138,7 @@
             this.ctx.beginPath();
             this.ctx.moveTo(p1.x, p1.y);
             this.ctx.lineTo(this.mouse.x, this.mouse.y);
-            this.ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+            this.ctx.strokeStyle = `rgba(${this.mouseLineColor}, ${alpha})`;
             this.ctx.lineWidth = 1;
             this.ctx.stroke();
           }
@@ -142,6 +149,5 @@
     }
   }
 
-  // Ejecutar cuando el script se cargue en el cliente
   new ParticleNetwork();
 </script>
