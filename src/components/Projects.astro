@@ -93,6 +93,7 @@ const PROJECTS = [
     description:
       "Es un software diseñado para gestionar ciclos lectivos especiales en la Institución Educativa San Joaquín. Automatiza procesos administrativos, facilita la inscripción y seguimiento de estudiantes, y mejora la comunicación entre docentes y personal administrativo. Incluye módulos para matrícula, gestión académica y reportes personalizados.",
     image: "/projects/EDUSILBRA.webp",
+    label: "Proyecto de práctica",
     tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.BOOTSTRAP, TAGS.PHP],
   },
   {
@@ -132,9 +133,9 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-10">
   {
-    PROJECTS.map(({ image, title, description, tags, youtube, github, externalLink }) => (
+    PROJECTS.map(({ image, title, description, tags, youtube, github, externalLink, label = "Proyecto destacado" }) => (
       <article class="group grid gap-6 rounded-xl border border-black/5 bg-white/60 p-4 shadow-[0_24px_80px_-40px_rgba(15,23,42,0.45)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_90px_-36px_rgba(15,23,42,0.55)] dark:border-white/10 dark:bg-white/[0.04] md:grid-cols-[1.15fr_0.85fr] md:p-5 md:group-hover:shadow-[0_20px_60px_-10px_rgba(251,191,36,0.2)] lg:border lg:border-gray-800 lg:hover:border-yellow-400/30 lg:hover:bg-gray-800/50">
-        <div class="relative overflow-hidden rounded-[1.4rem] border border-black/5 dark:border-white/10">
+        <div class="relative overflow-hidden rounded-xl border border-black/5 dark:border-white/10">
           <img
             alt={title}
             class="h-full min-h-[250px] w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
@@ -144,10 +145,10 @@ const PROJECTS = [
           <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent"></div>
         </div>
 
-        <div class="flex flex-col justify-between gap-5 rounded-[1.5rem] bg-white/70 p-5 ring-1 ring-black/5 dark:bg-[#0f172a]/55 dark:ring-white/10">
+        <div class="flex flex-col justify-between gap-5 rounded-xl bg-white/70 p-5 ring-1 ring-black/5 dark:bg-[#0f172a]/55 dark:ring-white/10">
           <div class="space-y-4">
-            <div class="inline-flex rounded-full bg-yellow-400/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-yellow-700 dark:text-yellow-300">
-              Proyecto destacado
+            <div class="inline-flex rounded-xl bg-yellow-400/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-yellow-700 dark:text-yellow-300">
+              {label}
             </div>
 
             <div class="space-y-3">

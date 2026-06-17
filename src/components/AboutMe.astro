@@ -1,10 +1,10 @@
 ---
- const personalImageAlt = "Brando Julio"
+const personalImageAlt = "Brando Julio"
 ---
 
-<article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
+<article class="mt-8 grid items-center gap-10 md:mt-10 md:grid-cols-[1.1fr_0.9fr]">
   <div
-    class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+    class="order-2 rounded-[2rem] border border-black/5 bg-white/65 p-6 text-pretty text-zinc-700 shadow-[0_24px_80px_-48px_rgba(15,23,42,0.35)] backdrop-blur dark:border-white/10 dark:bg-white/[0.04] dark:text-zinc-300 md:order-1 md:p-8 [&>p]:mb-4 [&>p:last-child]:mb-0 [&>p>strong]:font-semibold [&>p>strong]:text-yellow-600 dark:[&>p>strong]:text-yellow-200"
   >
     <p>
       Soy <strong>Brando Julio</strong>, Ingeniero de Sistemas y Desarrollador Frontend con una sólida experiencia en la construcción de aplicaciones web modernas y de alto rendimiento. Me especializo en desarrollar interfaces intuitivas, escalables y optimizadas, combinando excelencia técnica con una experiencia de usuario excepcional.
@@ -17,34 +17,30 @@
     <p>
       Mi objetivo es construir software que no solo funcione correctamente, sino que también destaque por su rendimiento, escalabilidad y atención al detalle, aportando valor tangible a cada proyecto en el que participo.
     </p>
-
   </div>
 
-  <img 
-  width="200" 
-  height="200" 
-  src="/projects/foto_perfil.webp" 
-  alt={personalImageAlt} 
-  class="
-    order-1 md:order-2 
-    w-72 md:w-80 lg:w-96 
-    aspect-square h-full p-1 lg:p-2 
-    object-cover 
-    rounded-2xl 
-    rotate-3 
-    
-    /* Borde sutil (Modo claro y oscuro) */
-    ring-1 ring-zinc-200/50 dark:ring-white/10
-    bg-zinc-100 dark:bg-zinc-800/50
-    
-    /* El truco de la suavidad: Transiciones */
-    transition-all duration-500 ease-out
-    
-    /* Efecto HOVER: Se eleva suave, se endereza, crece un poco y gana sombra profunda */
-    hover:-translate-y-4 hover:rotate-0 hover:scale-[1.02]
-    hover:shadow-2xl hover:shadow-indigo-500/10
-    hover:ring-indigo-500/50 dark:hover:ring-indigo-400/50
-    " 
-    style="object-position: 50% 50%"
-  />
+  <div class="relative order-1 flex justify-center md:order-2">
+    <div class="absolute h-48 w-48 rounded-full bg-yellow-400/15 blur-3xl"></div>
+      <img 
+        width="200" 
+        height="200" 
+        src="/projects/foto_perfil.webp" 
+        alt={personalImageAlt} 
+        class="
+          order-1 md:order-2 
+          w-72 md:w-80 lg:w-96 
+          aspect-square h-full p-1 lg:p-2 
+          object-cover 
+          rounded-2xl 
+          rotate-3 
+          ring-1 ring-zinc-200/50 dark:ring-white/10
+          bg-zinc-100 dark:bg-zinc-800/50
+          transition-all duration-500 ease-out
+          hover:-translate-y-2 hover:rotate-0 hover:scale-[1.02]
+          hover:shadow-2xl hover:shadow-indigo-500/10
+          hover:ring-indigo-500/50 dark:hover:ring-indigo-400/50
+          " 
+          style="object-position: 50% 50%"
+      />
+  </div>
 </article>

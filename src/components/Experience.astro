@@ -1,34 +1,40 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro"
-const EXPERIENCE=[
+
+const EXPERIENCE = [
   {
-      date: "Septiembre 2023",
-      title: "Principal Frontend Engineer",
-      company: "BOHIO",
-      description:
-        "Fui responsable de la creación y mejora continua de interfaces de usuario, enfocándome en la optimización del rendimiento y la experiencia visual. Trabajé en la construcción de soluciones que facilitaran una navegación intuitiva y una interacción fluida para los usuarios, siempre alineado con los objetivos del producto y las necesidades del equipo.",
-    }, {
-        date: "Febrero 2024 - Agosto 2024",
-        title: "Principal Frontend Engineer",
-        company:"I.E San Jaoquin - Valledupar",
-        description: "Diseñé y desarrollé el módulo de Gestión de la Convivencia Escolar para el software de la Institución Educativa San Joaquín, basado en la Ley 1620 de 2013. Este módulo centraliza y digitaliza la administración de incidentes escolares, implementando funciones clave como la gestión de observaciones, severidad y evidencias, mejorando la organización, eficiencia y seguridad en el entorno escolar.",
-    }, {
+    date: "Septiembre 2023",
+    title: "Principal Frontend Engineer",
+    company: "BOHIO",
+    description:
+      "Fui responsable de la creación y mejora continua de interfaces de usuario, enfocándome en la optimización del rendimiento y la experiencia visual. Trabajé en la construcción de soluciones que facilitaran una navegación intuitiva y una interacción fluida para los usuarios, siempre alineado con los objetivos del producto y las necesidades del equipo.",
+  },
+  {
+    date: "Febrero 2024 - Agosto 2024",
+    title: "Principal Frontend Engineer",
+    company: "I.E San Jaoquin - Valledupar",
+    description:
+      "Diseñé y desarrollé el módulo de Gestión de la Convivencia Escolar para el software de la Institución Educativa San Joaquín, basado en la Ley 1620 de 2013. Este módulo centraliza y digitaliza la administración de incidentes escolares, implementando funciones clave como la gestión de observaciones, severidad y evidencias, mejorando la organización, eficiencia y seguridad en el entorno escolar.",
+  },
+  {
     date: "Septiembre 2025",
     title: "Desarrollador Full Stack",
-    company: "Crear vpa",
+    company: "V.P.A CREAR S.A.S.",
     description:
-      "Desarrollador Full Stack encargado del diseño, desarrollo y mantenimiento de aplicaciones web y software interno para la empresa. Implemento soluciones escalables y seguras que optimizan procesos, mejoran la productividad y aportan valor al negocio. Trabajo con enfoque en código limpio, rendimiento y experiencia de usuario, adaptando cada sistema a las necesidades de la organización.",
-  }
+      "Desarrollador Full Stack encargado del diseño, desarrollo y mantenimiento de aplicaciones web y software interno para la empresa como Asigno, Kontia y Acuerdos pro. Implemento soluciones escalables y seguras que optimizan procesos, mejoran la productividad y aportan valor al negocio. Trabajo con enfoque en código limpio, rendimiento y experiencia de usuario, adaptando cada sistema a las necesidades de la organización.",
+  },
 ]
 ---
 
-<ol class="relative mt-16">
-  {
-    EXPERIENCE.map((experience) => (
-      <li class="">
-        <ExperienceItem {...experience} />
-      </li>
-    ))
-  }
-</ol>
-
+<section class="relative mt-10">
+  <div class="absolute left-0 top-10 -z-10 h-28 w-28 rounded-full bg-yellow-400/10 blur-3xl"></div>
+  <ol class="relative mt-12">
+    {
+      EXPERIENCE.map((experience) => (
+        <li>
+          <ExperienceItem {...experience} />
+        </li>
+      ))
+    }
+  </ol>
+</section>

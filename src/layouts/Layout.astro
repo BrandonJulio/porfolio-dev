@@ -28,14 +28,15 @@ const { description, title } = Astro.props
     <ClientRouter />
   </head>
 
-  <body class="relative text-black dark:text-white">
+  <body class="relative overflow-x-hidden text-black dark:text-white">
     <Particles />
     <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      class="absolute inset-0 z-[-2] min-h-screen w-full bg-[#fcfbf7] dark:bg-[#050816]
+      bg-[radial-gradient(circle_at_top,rgba(250,204,21,0.18),transparent_30%),radial-gradient(circle_at_80%_20%,rgba(56,189,248,0.14),transparent_28%),linear-gradient(to_bottom,rgba(255,255,255,0.96),rgba(252,251,247,1))]
+      dark:bg-[radial-gradient(circle_at_top,rgba(250,204,21,0.12),transparent_26%),radial-gradient(circle_at_80%_20%,rgba(56,189,248,0.12),transparent_24%),linear-gradient(to_bottom,rgba(5,8,22,1),rgba(3,7,18,1))]"
     >
     </div>
+    <div class="pointer-events-none absolute inset-x-0 top-0 z-[-1] h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent"></div>
     <Header />
     <slot />
     <Footer />
