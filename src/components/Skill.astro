@@ -95,11 +95,11 @@
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 18px;
-    padding: 1.5rem 0;
+    border-radius: 28px;
+    padding: 1.75rem 0;
     background:
-      radial-gradient(circle at top, rgba(250, 204, 21, 0.12), transparent 30%),
-      rgba(255, 255, 255, 0.6);
+      radial-gradient(circle at top, rgba(250, 204, 21, 0.16), transparent 32%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(255, 248, 220, 0.58));
     box-shadow: 0 24px 80px -48px rgba(15, 23, 42, 0.35);
     backdrop-filter: blur(18px);
   }
@@ -107,7 +107,7 @@
   .skills-carousel {
     overflow: hidden;
     width: 100%;
-    padding: 16px 0;
+    padding: 18px 0;
     mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   }
 
@@ -117,24 +117,39 @@
     gap: 24px;
     width: max-content;
     white-space: nowrap;
-    animation: scrollSkills 22s linear infinite;
+    animation: scrollSkills 26s linear infinite;
   }
 
   .skill-item {
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    min-height: 88px;
+    min-width: 88px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.72);
+    padding: 1rem;
+    box-shadow: 0 16px 35px -28px rgba(15, 23, 42, 0.45);
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, background 0.3s ease-in-out;
   }
 
   .iconStyle {
     display: block;
     border-radius: 14px;
-    box-shadow: 0 12px 30px -18px rgba(15, 23, 42, 0.4);
+    box-shadow: 0 12px 30px -18px rgba(15, 23, 42, 0.25);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
 
-  .iconStyle:hover {
-    transform: translateY(-4px) scale(1.05);
+  .skill-item:hover {
+    transform: translateY(-6px);
+    border-color: rgba(250, 204, 21, 0.28);
+    background: rgba(255, 252, 235, 0.92);
+  }
+
+  .skill-item:hover .iconStyle {
+    transform: scale(1.06);
     box-shadow: 0 18px 38px -18px rgba(0, 0, 0, 0.28);
   }
 
@@ -155,7 +170,17 @@
   :global(.dark) .skills-shell {
     border-color: rgba(255, 255, 255, 0.08);
     background:
-      radial-gradient(circle at top, rgba(250, 204, 21, 0.08), transparent 30%),
-      rgba(255, 255, 255, 0.04);
+      radial-gradient(circle at top, rgba(250, 204, 21, 0.12), transparent 30%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03));
+  }
+
+  :global(.dark) .skill-item {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  :global(.dark) .skill-item:hover {
+    border-color: rgba(250, 204, 21, 0.24);
+    background: rgba(250, 204, 21, 0.08);
   }
 </style>

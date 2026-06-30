@@ -141,9 +141,15 @@ const PROJECTS = [
 
 <div class="flex flex-col gap-10">
   {
-    PROJECTS.map(({ image, title, description, tags, youtube, github, externalLink, label = "Proyecto destacado" }) => (
-      <article class="group grid gap-6 rounded-xl border border-black/5 bg-white/60 p-4 shadow-[0_24px_80px_-40px_rgba(15,23,42,0.45)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_90px_-36px_rgba(15,23,42,0.55)] dark:border-white/10 dark:bg-white/[0.04] md:grid-cols-[1.15fr_0.85fr] md:p-5 md:group-hover:shadow-[0_20px_60px_-10px_rgba(251,191,36,0.2)] lg:border lg:border-gray-800 lg:hover:border-yellow-400/30 lg:hover:bg-gray-800/50">
-        <div class="relative overflow-hidden rounded-xl border border-black/5 dark:border-white/10">
+    PROJECTS.map(({ image, title, description, tags, youtube, github, externalLink, label = "Proyecto destacado" }, index) => (
+      <article class={`group grid gap-6 rounded-xl border border-black/5 bg-white/60 p-4 shadow-[0_24px_80px_-40px_rgba(15,23,42,0.45)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_90px_-36px_rgba(15,23,42,0.55)] dark:border-white/10 dark:bg-white/[0.04] md:p-5 md:group-hover:shadow-[0_20px_60px_-10px_rgba(251,191,36,0.2)] lg:border lg:border-gray-800 lg:hover:border-yellow-400/30 lg:hover:bg-gray-800/50 ${index === 0 ? "md:grid-cols-[1.3fr_0.7fr]" : "md:grid-cols-[1.15fr_0.85fr]"}`}>
+        <button
+          type="button"
+          data-preview-image={image}
+          data-preview-title={title}
+          aria-label={`Ver imagen completa de ${title}`}
+          class="relative block overflow-hidden rounded-xl border border-black/5 dark:border-white/10"
+        >
           <img
             alt={title}
             class="h-full min-h-[250px] w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
@@ -151,9 +157,9 @@ const PROJECTS = [
             src={image}
           />
           <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent"></div>
-        </div>
+        </button>
 
-        <div class="flex flex-col justify-between gap-5 rounded-xl bg-white/70 p-5 ring-1 ring-black/5 dark:bg-[#0f172a]/55 dark:ring-white/10">
+        <div class={`flex flex-col justify-between gap-5 rounded-xl p-5 ring-1 ring-black/5 dark:ring-white/10 ${index === 0 ? "bg-gradient-to-br from-white/90 to-yellow-50/70 dark:bg-[linear-gradient(135deg,rgba(15,23,42,0.75),rgba(250,204,21,0.08))]" : "bg-white/70 dark:bg-[#0f172a]/55"}`}>
           <div class="space-y-4">
             <div class="inline-flex rounded-xl bg-yellow-400/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-yellow-700 dark:text-yellow-300">
               {label}
@@ -163,7 +169,7 @@ const PROJECTS = [
               <h3 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
                 {title}
               </h3>
-              <p class="text-[15px] leading-7 text-slate-600 dark:text-slate-300">
+              <p class={`text-[15px] leading-7 dark:text-slate-300 ${index === 0 ? "text-slate-700" : "text-slate-600"}`}>
                 {description}
               </p>
             </div>
@@ -205,3 +211,74 @@ const PROJECTS = [
     ))
   }
 </div>
+
+<div
+  id="project-image-preview"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-4 backdrop-blur-sm"
+>
+  <button
+    type="button"
+    data-close-preview
+    class="absolute inset-0 cursor-default"
+    aria-label="Cerrar vista previa"
+  ></button>
+  <div class="relative z-10 w-full max-w-5xl">
+    <button
+      type="button"
+      data-close-preview
+      class="absolute right-3 top-3 rounded-full bg-black/60 px-3 py-1 text-sm font-semibold text-white"
+      aria-label="Cerrar vista previa"
+    >
+      Cerrar
+    </button>
+    <img
+      id="project-preview-image"
+      alt=""
+      class="max-h-[85vh] w-full rounded-2xl object-contain shadow-2xl"
+    />
+  </div>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const preview = document.getElementById("project-image-preview")
+    const previewImage = document.getElementById("project-preview-image") as HTMLImageElement | null
+    const previewTriggers = document.querySelectorAll("[data-preview-image]")
+    const closeButtons = document.querySelectorAll("[data-close-preview]")
+
+    if (!preview || !previewImage) return
+
+    const closePreview = () => {
+      preview.classList.add("hidden")
+      preview.classList.remove("flex")
+      previewImage.src = ""
+      previewImage.alt = ""
+      document.body.style.overflow = ""
+    }
+
+    previewTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const image = trigger.getAttribute("data-preview-image")
+        const title = trigger.getAttribute("data-preview-title")
+
+        if (!image) return
+
+        previewImage.src = image
+        previewImage.alt = title ?? "Vista previa del proyecto"
+        preview.classList.remove("hidden")
+        preview.classList.add("flex")
+        document.body.style.overflow = "hidden"
+      })
+    })
+
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", closePreview)
+    })
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closePreview()
+      }
+    })
+  })
+</script>
